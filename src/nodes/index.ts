@@ -1,26 +1,37 @@
 import type { NodeTypes } from '@xyflow/react';
-
-import { PositionLoggerNode } from './PositionLoggerNode';
 import { AppNode } from './types';
+import { TaskNode } from './TaskNode';
+import { ConditionNode } from './ConditionNode';
+import { NotificationNode } from './NotificationNode';
+import NodeCreater from './NodeCreater';
 
 export const initialNodes: AppNode[] = [
-  { id: 'a', type: 'input', position: { x: 0, y: 0 }, data: { label: 'wire' } },
   {
-    id: 'b',
-    type: 'position-logger',
-    position: { x: -100, y: 100 },
-    data: { label: 'drag me!' },
+    id: "0",
+    data: {},
+    position: { x: 500, y: -600 },
+    type: "nodecreater"
   },
-  { id: 'c', position: { x: 100, y: 100 }, data: { label: 'your ideas' } },
-  {
-    id: 'd',
-    type: 'output',
-    position: { x: 0, y: 200 },
-    data: { label: 'with React Flow' },
+  { id: "1",
+    position: { x: 100, y: -200 },
+    data: { label: 'Task' } ,
+    type: 'task',
+  },
+  { id: "2",
+    position: { x: 200, y: -100 },
+    data: { label: 'Condition' } ,
+    type: 'condition',
+  },
+  { id: "3",
+    position: { x: 300, y: -300 },
+    data: { label: 'Notification' } ,
+    type: 'notification',
   },
 ];
 
 export const nodeTypes = {
-  'position-logger': PositionLoggerNode,
-  // Add any of your custom nodes here!
+  'task': TaskNode,
+  'condition': ConditionNode,
+  'notification': NotificationNode,
+  'nodecreater': NodeCreater
 } satisfies NodeTypes;

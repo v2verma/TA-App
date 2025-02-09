@@ -1,4 +1,7 @@
 import type { Node, BuiltInNode } from '@xyflow/react';
 
-export type PositionLoggerNode = Node<{ label: string }, 'position-logger'>;
-export type AppNode = BuiltInNode | PositionLoggerNode;
+export type TaskInNode = Node<{ label: string }, 'task'>;
+export type ConditionInNode = Node<{ label: string }, 'condition'>;
+export type NotificationInNode = Node<{ label: string }, 'notification'>;
+export type NodeCreaterInNode = Node<{ label?: string }, 'nodecreater'>;
+export type AppNode = BuiltInNode | TaskInNode | ConditionInNode | NotificationInNode | NodeCreaterInNode;
