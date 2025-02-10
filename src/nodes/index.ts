@@ -14,7 +14,7 @@ export const initialNodes: AppNode[] = [
   },
   { id: "1",
     position: { x: 100, y: -200 },
-    data: { label: 'Task' } ,
+    data: { label: 'Task', assignee: '', date: '', taskName: '' } ,
     type: 'task',
   },
   { id: "2",

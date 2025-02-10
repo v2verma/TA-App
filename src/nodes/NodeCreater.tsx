@@ -36,6 +36,7 @@ export default function NodeCreater() {
       {NODE_CREATERS.map((item) => {
         return (
           <button
+            key={item.type}
             className={item.style}
             title="create task node"
             onClick={() =>

@@ -6,7 +6,7 @@ export function NotificationNode({ data: { label }, id }: NodeProps<Notification
   const { setNodes } = useReactFlow();
   return (
     <>
-    <div className="test" style={{border: '1px solid', borderRadius: '1%'}}>
+    <div className="test" style={{border: '1px solid #00c106', borderRadius: '23px'}}>
       <div style={{display: 'flex'}} title="click here for update">
         <div style={{width: '84px', padding: '5%'}}>{label}</div>
           <button className="btn btn-default" title="click here for delete"

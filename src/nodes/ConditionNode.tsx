@@ -6,7 +6,7 @@ export function ConditionNode({ data: { label }, id }: NodeProps<ConditionInNode
   const { setNodes } = useReactFlow();
   return (
     <>
-       <div className="test" style={{border: '1px solid', borderRadius: '1%'}}>
+       <div className="test" style={{border: '1px solid #12a5b8', borderRadius: '23px'}}>
           <div style={{display: 'flex'}} title="click here for update">
             <div style={{width: '74px', padding: '5%'}}>{label}</div>
               <button className="btn btn-default" title="click here for delete"
