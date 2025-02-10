@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   ReactFlow,
   Background,
@@ -15,7 +15,7 @@ import '@xyflow/react/dist/style.css';
 
 import { initialNodes, nodeTypes } from './nodes';
 import { initialEdges, edgeTypes } from './edges';
-import EditFormForNode from './components/EditFormForNode';
+import EditFormForNode from './components/NodeForm';
 import NodeStateContext, { NodeProperties } from './context/node-state.context';
 
 export default function App() {
@@ -43,7 +43,7 @@ export default function App() {
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
       fitView
-      maxZoom={1}
+      maxZoom={0.8}
     >
       <Background />
       {/* <MiniMap /> */}

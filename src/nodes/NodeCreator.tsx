@@ -1,16 +1,16 @@
 import { useReactFlow } from "@xyflow/react";
 
 const NODE_CREATERS = [
-  { type: "task", name: "Task", style: "btn btn-sm btn-primary" },
-  { type: "condition", name: "Condition", style: "btn btn-sm btn-info" },
+  { type: "task", name: "Task", style: "btn btn-primary" },
+  { type: "condition", name: "Condition", style: "btn btn-info" },
   {
     type: "notification",
     name: "Notification",
-    style: "btn btn-sm btn-success",
+    style: "btn btn-success",
   },
 ];
 
-export default function NodeCreater() {
+export default function NodeCreator() {
   const { setNodes } = useReactFlow();
 
   const onProviderClick = ({ name, code }: { name: string; code: string }) => {
@@ -29,7 +29,7 @@ export default function NodeCreater() {
 
   return (
     <div
-      className="btn-group btn-group-sm"
+      className="btn-group btn-group-md"
       role="group"
       aria-label="create node type"
     >

@@ -3,14 +3,14 @@ import { AppNode } from './types';
 import { TaskNode } from './TaskNode';
 import { ConditionNode } from './ConditionNode';
 import { NotificationNode } from './NotificationNode';
-import NodeCreater from './NodeCreater';
+import NodeCreator from './NodeCreator';
 
 export const initialNodes: AppNode[] = [
   {
     id: "0",
     data: {},
     position: { x: 500, y: -600 },
-    type: "nodecreater"
+    type: "nodecreator"
   },
   { id: "1",
     position: { x: 100, y: -200 },
@@ -33,5 +33,5 @@ export const nodeTypes = {
   'task': TaskNode,
   'condition': ConditionNode,
   'notification': NotificationNode,
-  'nodecreater': NodeCreater
+  'nodecreator': NodeCreator
 } satisfies NodeTypes;

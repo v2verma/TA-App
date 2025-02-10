@@ -2,9 +2,9 @@ import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import NodeContext from "../context/node-state.context";
 import { useReactFlow } from "@xyflow/react";
-import { TaskInNode } from "../nodes/types";
 
-const EditFormForNode = (props: any) => {
+
+const NodeForm = () => {
   const {openNode, setOpenNode} = useContext(NodeContext);
   const { nodeId, nodeType } = openNode;
   const { register, handleSubmit, setValue } = useForm();
@@ -62,4 +62,4 @@ const EditFormForNode = (props: any) => {
   );
 };
 
-export default EditFormForNode;
+export default NodeForm;

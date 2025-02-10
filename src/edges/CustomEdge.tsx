@@ -5,7 +5,7 @@ import {
   useReactFlow,
 } from '@xyflow/react';
  
-export default function CEdge({ id, sourceX, sourceY, targetX, targetY }) {
+export default function CustomEdge({ id, sourceX, sourceY, targetX, targetY }) {
   const { setEdges } = useReactFlow();
   const [edgePath, labelX, labelY] = getStraightPath({
     sourceX,
