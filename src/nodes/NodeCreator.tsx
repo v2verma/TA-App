@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useReactFlow } from "@xyflow/react";
 
 const NODE_CREATERS = [
@@ -11,16 +12,16 @@ const NODE_CREATERS = [
 ];
 
 export default function NodeCreator() {
-  const { setNodes } = useReactFlow();
+  const { getNodes, setNodes } = useReactFlow();
 
   const onProviderClick = ({ name, code }: { name: string; code: string }) => {
     const location = Math.random() * 200;
-
+    const specificNode = getNodes().filter(node => node.data.nodeType === code);
     setNodes((prevNodes) => [
       ...prevNodes,
       {
-        id: `${prevNodes.length + 1}`,
-        data: { label: name },
+        id: `${prevNodes.length}`,
+        data: { nodeID: specificNode.length+1, nodeType: code, nodename: name },
         type: code,
         position: { x: location, y: -location },
       },

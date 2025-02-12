@@ -1,6 +1,6 @@
 {
-  "name": "vite-react-flow-template",
-  "version": "0.0.0",
+  "name": "ta-node-workflow-app",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-table": "^8.20.6",
     "@xyflow/react": "^12.3.6",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",

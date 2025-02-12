@@ -1,9 +1,7 @@
 import type { NodeTypes } from '@xyflow/react';
 import { AppNode } from './types';
-import { TaskNode } from './TaskNode';
-import { ConditionNode } from './ConditionNode';
-import { NotificationNode } from './NotificationNode';
 import NodeCreator from './NodeCreator';
+import { CustomNode } from './CustomNode';
 
 export const initialNodes: AppNode[] = [
   {
@@ -14,24 +12,30 @@ export const initialNodes: AppNode[] = [
   },
   { id: "1",
     position: { x: 100, y: -200 },
-    data: { label: 'Task', assignee: '', date: '', taskName: '' } ,
+    data: { nodeID: "1", nodeType: 'task', assignee: 'xyz', duedate: '', nodename: 'Task' } ,
     type: 'task',
   },
   { id: "2",
     position: { x: 200, y: -100 },
-    data: { label: 'Condition' } ,
+    data: { nodeID: '1', nodeType: 'condition', assignee: 'abc', duedate: '', nodename: 'Condition' } ,
     type: 'condition',
   },
   { id: "3",
     position: { x: 300, y: -300 },
-    data: { label: 'Notification' } ,
+    data: { nodeID: '1', nodeType: 'notification', assignee: 'pqr', duedate: '', nodename: 'Notification' } ,
     type: 'notification',
   },
 ];
 
 export const nodeTypes = {
-  'task': TaskNode,
-  'condition': ConditionNode,
-  'notification': NotificationNode,
+  'task': CustomNode,
+  'condition': CustomNode,
+  'notification': CustomNode,
   'nodecreator': NodeCreator
 } satisfies NodeTypes;
+// export const nodeTypes = {
+//   'task': TaskNode,
+//   'condition': ConditionNode,
+//   'notification': NotificationNode,
+//   'nodecreator': NodeCreator
+// } satisfies NodeTypes;
