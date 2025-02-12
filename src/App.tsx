@@ -19,6 +19,8 @@ import { initialEdges, edgeTypes } from "./edges";
 import EditFormForNode from "./components/NodeForm";
 import NodeStateContext, { NodeProperties } from "./context/node-state.context";
 import NodeDataGrid from "./components/NodeDataGrid";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -43,45 +45,50 @@ export default function App() {
   );
 
   return (
-    <div className="container">
-      <div className="row">
-      <ReactFlowProvider>
-        <div className="col-md-7 col-sm-12">
-          <div
-            className="shadow p-3 mb-5 bg-body rounded"
-            style={{ height: "90vh" }}
-          >
-            <NodeStateContext.Provider value={{ openNode, setOpenNode }}>
-              <ReactFlow
-                nodes={nodes}
-                nodeTypes={nodeTypes}
-                onNodesChange={onNodesChange}
-                edges={edges}
-                edgeTypes={edgeTypes}
-                onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
-                fitView
-                maxZoom={0.8}
+    <>
+      <Header />
+      <div className="container">
+        <div className="row">
+          <ReactFlowProvider>
+            <div className="col-md-7 col-sm-12">
+              <div
+                className="shadow p-3 mb-5 bg-body rounded"
+                style={{ height: "90vh" }}
               >
-                <Background />
-                {/* <MiniMap /> */}
-                <Controls />
-                {openNode.isOpen && <EditFormForNode />}
-              </ReactFlow>
-            </NodeStateContext.Provider>
-          </div>
+                <NodeStateContext.Provider value={{ openNode, setOpenNode }}>
+                  <ReactFlow
+                    nodes={nodes}
+                    nodeTypes={nodeTypes}
+                    onNodesChange={onNodesChange}
+                    edges={edges}
+                    edgeTypes={edgeTypes}
+                    onEdgesChange={onEdgesChange}
+                    onConnect={onConnect}
+                    fitView
+                    maxZoom={0.8}
+                  >
+                    <Background />
+                    {/* <MiniMap /> */}
+                    <Controls />
+                    {openNode.isOpen && <EditFormForNode />}
+                  </ReactFlow>
+                </NodeStateContext.Provider>
+              </div>
+            </div>
+            <div className="col-md-5">
+              <div
+                className="shadow p-3 mb-5 bg-body rounded"
+                style={{ height: "90vh" }}
+              >
+                <NodeDataGrid
+                  nodes={nodes?.filter((node) => node.type !== "nodecreator")}
+                />
+              </div>
+            </div>
+          </ReactFlowProvider>
         </div>
-        <div className="col-md-5">
-          <div
-            className="shadow p-3 mb-5 bg-body rounded"
-            style={{ height: "90vh" }}
-          >
-            
-              <NodeDataGrid nodes={nodes?.filter((node)=> node.type !== "nodecreator")} />
-          </div>
-        </div>
-      </ReactFlowProvider>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

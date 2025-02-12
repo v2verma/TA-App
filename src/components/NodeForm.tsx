@@ -5,7 +5,7 @@ import { useReactFlow } from "@xyflow/react";
 
 const NodeForm = () => {
   const { openNode, setOpenNode } = useContext(NodeContext);
-  const { nodeId="1", nodeType } = openNode;
+  const { nodeId="1", nodeType, id } = openNode;
   const {
     register,
     handleSubmit,
@@ -43,7 +43,7 @@ const NodeForm = () => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">
-                Update {nodeType?.toUpperCase()} #{nodeId}
+                Update {nodeType?.toUpperCase()} #{id}
               </h5>
               <button
                 type="button"

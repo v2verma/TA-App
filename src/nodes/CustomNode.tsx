@@ -8,7 +8,7 @@ export function CustomNode({ data: { nodeID, nodeType, nodename }, id }: NodePro
   const { setOpenNode } = useContext(NodeStateContext);
 
   const handleNode = () => {
-    setOpenNode({isOpen: true, nodeId: id, nodeType: nodeType});
+    setOpenNode({isOpen: true, nodeId: id, nodeType: nodeType, id: `${nodeID}`});
   }
   const nodeColorPalate: {task: string, condition: string, notification: string} = {
     'task': '#3244be',

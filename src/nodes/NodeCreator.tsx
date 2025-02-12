@@ -30,7 +30,7 @@ export default function NodeCreator() {
 
   return (
     <div
-      className="btn-group btn-group-md"
+      className="btn-group btn-group-lg"
       role="group"
       aria-label="create node type"
     >
@@ -39,7 +39,7 @@ export default function NodeCreator() {
           <button
             key={item.type}
             className={item.style}
-            title="create task node"
+            title={`create ${item.type} node`}
             onClick={() =>
               onProviderClick({ name: `${item.name}`, code: `${item.type}` })
             }

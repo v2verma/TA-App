@@ -13,7 +13,6 @@ import { EditableCell } from './EditableCell';
 
 
 const NodeDataGrid = (props: {nodes: AppNode[]}) => {
-    // console.log("PROPS", props)
     const { setNodes } = useReactFlow();
     const [data, setData] = useState(props?.nodes?.map(node=>{return {...node, ...node.data}}));
     const columns = useMemo(()=>[
@@ -50,7 +49,6 @@ const NodeDataGrid = (props: {nodes: AppNode[]}) => {
           accessorKey: 'actions',
           cell: ({ row, saveData }) => (
             <button className='btn btn-primary' onClick={() =>{
-              // console.log("SAVE", row)
               return setNodes((prevNodes) => prevNodes.map((node)=> node.id === `${parseInt(row.id)+1}` ? {
                     ...node,
                     data: {
@@ -94,12 +92,10 @@ const NodeDataGrid = (props: {nodes: AppNode[]}) => {
     setData(props?.nodes?.map(node=>{return {...node, ...node.data}}))
   },[props])
 
-  console.log("DATA", data)
-
   return (
     <div className="table-responsive">
       <table className="table table-striped">
-        <thead className='table-info'>
+        <thead className='table-info' style={{height: '65px', verticalAlign: 'middle'}}>
           {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map(header => (
@@ -117,7 +113,7 @@ const NodeDataGrid = (props: {nodes: AppNode[]}) => {
             </tr>
           ))}
         </thead>
-        <tbody className='table-group-divider'>
+        <tbody>
           {table.getRowModel().rows.map(row => (
             <tr key={row.id}>
               {row.getVisibleCells().map(cell => {

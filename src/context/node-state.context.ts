@@ -1,6 +1,7 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
 
 export interface NodeProperties {
+  id?: string,
   nodeId?: string,
   nodeType?: string,
   isOpen: boolean
