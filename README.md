@@ -41,6 +41,8 @@ yarn dev
 
 This will launch the development server, and you can view the app at http://localhost:5173 (default)
 
+![image](https://github.com/user-attachments/assets/3280e884-c542-4a21-9857-7c97b5ffb83d)
+
 
 
 
