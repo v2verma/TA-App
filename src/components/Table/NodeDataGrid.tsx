@@ -8,18 +8,28 @@ import {
   useReactTable
 } from '@tanstack/react-table';
 import { useReactFlow } from '@xyflow/react';
-import { AppNode } from '../nodes/types';
+import { AppNode } from '../../nodes/types';
 import { EditableCell } from './EditableCell';
+import ToastMessage from '../ToastMessage';
+import { NodeIdCell } from './NodeIdCell';
+import { StatusCell } from './StatusCell';
 
 
 const NodeDataGrid = (props: {nodes: AppNode[]}) => {
     const { setNodes } = useReactFlow();
     const [data, setData] = useState(props?.nodes?.map(node=>{return {...node, ...node.data}}));
+    const [success, setSuccess] = useState(false);
     const columns = useMemo(()=>[
+        {
+          header: 'Node ID',
+          accessorKey: 'nodeID',
+          size: 500,
+          cell: NodeIdCell
+        },
         {
           header: 'Node Type',
           accessorKey: 'nodeType',
-          cell: ({ row, column, cell, table }) => <div>{row.getValue(column.id)}</div>
+          cell: ({ row, column, cell, table }) => <div style={{width: '85px'}}>{row.getValue(column.id)}</div>
         },
         {
           header: 'Node Name',
@@ -34,25 +44,19 @@ const NodeDataGrid = (props: {nodes: AppNode[]}) => {
         {
           header: 'Status',
           accessorKey: 'duedate',
-          cell: ({ row, column, cell }) => {
-            return <input
-              type="text"
-              className="form-control form-control-sm"
-              style={{width: '95px'}}
-              value={row.getValue(column.id)}
-              onChange={(e) => {cell.renderValue(e.target.value, row.index, column.id)}}
-            />}
+          cell: StatusCell
           ,
         },
         {
           header: 'Actions',
           accessorKey: 'actions',
-          cell: ({ row, saveData }) => (
+          cell: ({ row, column, cell }) => (
             <button className='btn btn-primary' onClick={() =>{
+              setSuccess(true)
               return setNodes((prevNodes) => prevNodes.map((node)=> node.id === `${parseInt(row.id)+1}` ? {
                     ...node,
                     data: {
-                      nodeId: row.original.nodeID,
+                      nodeID: row.original.nodeID,
                       nodeType: row.original.type,
                       nodename: row.original.nodename,
                       assignee: row.original.assignee,
@@ -92,7 +96,10 @@ const NodeDataGrid = (props: {nodes: AppNode[]}) => {
     setData(props?.nodes?.map(node=>{return {...node, ...node.data}}))
   },[props])
 
+  // useEffect(()=>{setSuccess(false)}, [success])
+
   return (
+    <>
     <div className="table-responsive">
       <table className="table table-striped">
         <thead className='table-info' style={{height: '65px', verticalAlign: 'middle'}}>
@@ -195,6 +202,8 @@ const NodeDataGrid = (props: {nodes: AppNode[]}) => {
         </select>
       </div>
     </div>
+    {success && <ToastMessage message={"Node updated successfully"} handleClose={()=> setSuccess(false)}/>}
+    </>
   )
 }
 

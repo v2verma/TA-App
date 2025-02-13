@@ -16,9 +16,9 @@ import "@xyflow/react/dist/style.css";
 
 import { initialNodes, nodeTypes } from "./nodes";
 import { initialEdges, edgeTypes } from "./edges";
-import EditFormForNode from "./components/NodeForm";
+import EditFormForNode from "./components/Form/NodeForm";
 import NodeStateContext, { NodeProperties } from "./context/node-state.context";
-import NodeDataGrid from "./components/NodeDataGrid";
+import NodeDataGrid from "./components/Table/NodeDataGrid";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -77,7 +77,7 @@ export default function App() {
             </div>
             <div className="col-md-5">
               <div
-                className="shadow p-3 mb-5 bg-body rounded"
+                className="shadow p-3 mb-5 bg-body rounded overflow-auto"
                 style={{ height: "90vh" }}
               >
                 <NodeDataGrid

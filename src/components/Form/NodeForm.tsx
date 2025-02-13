@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import NodeContext from "../context/node-state.context";
+import NodeContext from "../../context/node-state.context";
 import { useReactFlow } from "@xyflow/react";
 
 const NodeForm = () => {
@@ -15,7 +15,6 @@ const NodeForm = () => {
   const { getNode, setNodes } = useReactFlow();
 
   const onSubmit = (data: any) => {
-    // console.log("SUBMIT", data)
     setNodes((prevNodes) =>
       prevNodes.map((node) =>
         node.id === nodeId
@@ -30,7 +29,6 @@ const NodeForm = () => {
   };
 
   useEffect(() => {
-    // console.log("TEST", nodeId, getNode(nodeId))
     setValue("nodename", getNode(nodeId)?.data.nodename);
     setValue("assignee", getNode(nodeId)?.data.assignee);
     setValue("duedate", getNode(nodeId)?.data.duedate);
@@ -43,7 +41,7 @@ const NodeForm = () => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">
-                Update {nodeType?.toUpperCase()} #{id}
+                Update {nodeType?.toUpperCase()} #{id || nodeId}
               </h5>
               <button
                 type="button"
@@ -96,7 +94,6 @@ const NodeForm = () => {
                     {...register("duedate", {
                       required: "Due Date is required",
                       validate: (value) => {
-                        // Custom date validation
                         const date = new Date(value);
                         const today = new Date();
                         if (isNaN(date.getTime())) {

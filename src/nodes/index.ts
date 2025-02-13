@@ -12,7 +12,7 @@ export const initialNodes: AppNode[] = [
   },
   { id: "1",
     position: { x: 100, y: -200 },
-    data: { nodeID: "1", nodeType: 'task', assignee: 'xyz', duedate: '', nodename: 'Task' } ,
+    data: { nodeID: '1', nodeType: 'task', assignee: 'xyz', duedate: '2025-02-10', nodename: 'Task' } ,
     type: 'task',
   },
   { id: "2",
@@ -33,9 +33,3 @@ export const nodeTypes = {
   'notification': CustomNode,
   'nodecreator': NodeCreator
 } satisfies NodeTypes;
-// export const nodeTypes = {
-//   'task': TaskNode,
-//   'condition': ConditionNode,
-//   'notification': NotificationNode,
-//   'nodecreator': NodeCreator
-// } satisfies NodeTypes;

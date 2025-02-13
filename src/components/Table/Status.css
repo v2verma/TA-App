@@ -1,0 +1,16 @@
+.progress-status{
+        text-align: center;
+        color: white;
+        background: green;
+        border-radius: 30px;
+        width: 75px;
+    
+    }
+    .due-status{
+        text-align: center;
+        color: white;
+        background: red;
+        border-radius: 30px;
+        width: 75px;
+    
+    }
