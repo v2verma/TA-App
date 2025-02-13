@@ -1,54 +1,47 @@
-![](https://github.com/xyflow/web/blob/main/assets/codesandbox-header-ts.png?raw=true)
+TA Node Workflow(React Vite Project):
+A React application powered by Vite, offering a fast and efficient development environment.
 
-# React Flow starter (Vite + TS)
 
-We've put together this template to serve as a starting point for folks
-interested in React Flow. You can use this both as a base for your own React
-Flow applications, or for small experiments or bug reports.
+Project Overview:
+This project is a React application set up using Vite. Vite offers a faster and leaner development experience, providing fast hot module replacement (HMR) and optimized builds. The app uses modern JavaScript and comes pre-configured with React.
+This is a node based workkflow application using React Flow for creating the node canvas for mode and edgaes creation, to update each individual node we have used React Hook Form with validation to update the created node and to have overall details of nodes created in the canvas we have also created a nodes deatil table using React Table with inline editing and Save functionality which should update the corresponding node in the canvas.
 
-**TypeScript not your thing?** We also have a vanilla JavaScript starter template,
-just for you!
 
-## Getting up and running
+Prerequisites:
+To get started, ensure you have the following installed on your machine:
 
-You can get this template without forking/cloning the repo using `degit`:
+Node.js (>= 21.0.0)
+npm (>= 9.0.0)- npm is installed automatically with Node.js
+To verify the installation of Node.js and npm, run:
 
-```bash
-npx degit xyflow/vite-react-flow-template your-app-name
-```
+node -v
+npm -v
 
-The template contains mostly the minimum dependencies to get up and running, but
-also includes eslint and some additional rules to help you write React code that
-is less likely to run into issues:
 
-```bash
-npm install # or `pnpm install` or `yarn install`
-```
+Installation:
+Clone the repository to your local machine:
 
-Vite is a great development server and build tool that we recommend our users to
-use. You can start a development server with:
+git clone https://github.com/v2verma/TA-App.git
 
-```bash
+Navigate into the project folder:
+cd TA-App
+
+Install dependencies using npm or Yarn:
+
+npm install
+# or if you prefer Yarn:
+yarn install
+
+Running the Development Server -
+To start the development server, run:
+
 npm run dev
-```
+# or if you are using Yarn:
+yarn dev
 
-While the development server is running, changes you make to the code will be
-automatically reflected in the browser!
+This will launch the development server, and you can view the app at http://localhost:5173 (default)
 
-## Things to try:
 
-- Create a new custom node inside `src/nodes/` (don't forget to export it from `src/nodes/index.ts`).
-- Change how things look by [overriding some of the built-in classes](https://reactflow.dev/learn/customization/theming#overriding-built-in-classes).
-- Add a layouting library to [position your nodes automatically](https://reactflow.dev/learn/layouting/layouting)
 
-## Resources
 
-Links:
 
-- [React Flow - Docs](https://reactflow.dev)
-- [React Flow - Discord](https://discord.com/invite/Bqt6xrs)
-
-Learn:
-
-- [React Flow – Custom Nodes](https://reactflow.dev/learn/customization/custom-nodes)
-- [React Flow – Layouting](https://reactflow.dev/learn/layouting/layouting)
