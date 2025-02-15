@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
   return (
     <header className="text-white p-4" style={{background: "rgb(117 153 161)"}}>
@@ -9,10 +11,10 @@ const Header = () => {
           <div className="col text-right">
             <nav>
               <ul className="list-unstyled d-flex justify-content-end">
-                <li><a className="btn btn-default text-white mx-2">Home</a></li>
-                <li><a className="btn btn-default text-white mx-2">About</a></li>
-                <li><a className="btn btn-default text-white mx-2">Contact</a></li>
-                <li><a className="btn btn-default text-white mx-2">SignUp</a></li>
+                <li><NavLink to="/" className={({isActive}) => `btn btn-default mx-2 ${isActive? 'text-primary fw-bolder': 'text-white'}`}>Home</NavLink></li>
+                <li><NavLink to="/about" className={({isActive}) => `btn btn-default mx-2 ${isActive? 'text-primary fw-bolder': 'text-white'}`}>About</NavLink></li>
+                <li><NavLink to="/contact" className={({isActive}) => `btn btn-default mx-2 ${isActive? 'text-primary fw-bolder': 'text-white'}`}>Contact</NavLink></li>
+                <li><NavLink to="/signup" className={({isActive}) => `btn btn-default mx-2 ${isActive? 'text-primary fw-bolder': 'text-white'}`}>SignUp</NavLink></li>
               </ul>
             </nav>
           </div>

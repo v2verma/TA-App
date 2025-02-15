@@ -19,8 +19,6 @@ import { initialEdges, edgeTypes } from "./edges";
 import EditFormForNode from "./components/Form/NodeForm";
 import NodeStateContext, { NodeProperties } from "./context/node-state.context";
 import NodeDataGrid from "./components/Table/NodeDataGrid";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 
 export default function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -46,7 +44,6 @@ export default function App() {
 
   return (
     <>
-      <Header />
       <div className="container">
         <div className="row">
           <ReactFlowProvider>
@@ -88,7 +85,6 @@ export default function App() {
           </ReactFlowProvider>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
